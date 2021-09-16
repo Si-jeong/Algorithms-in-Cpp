@@ -25,15 +25,19 @@ int solution(vector<int> food_times, long long k) {
     }
 
     total = 0; // 먹기 위해 사용한 시간
-    long long previous = 0; // 직전에 다 먹은 시간
-    long long length = food_times.size(); // 남은 음식의 개수
+    long long prev = 0; // 직전에 다 먹은 시간
+    long long count = food_times.size(); // 남은 음식의 개수
 
-    while(total + ((-pq.top().first - previous) * length) <= k){
+    while(true){
+        if (total + ((-pq.top().first - prev) * count) > k){
+            break;
+        }
+
         int now = -pq.top().first;
         pq.pop();
-        total += (now-previous)*length;
-        length -= 1;
-        previous = now;
+        total += (now-prev) * count;
+        count -= 1;
+        prev = now;
     }
 
     vector<pair<int, int> > result;
@@ -45,7 +49,7 @@ int solution(vector<int> food_times, long long k) {
     }
 
     sort(result.begin(), result.end(), compare); //음식의 번호 기준으로 정렬
-    return result[(k-total) % length].second;
+    return result[(k-total) % count].second;
 }
 
 int main(){
@@ -58,7 +62,8 @@ int main(){
 
     long long k = 5;
 
-    cout << solution(food_times, k) << endl;
+    printf("%d\n", solution(food_times, k));
+    // cout << solution(food_times, k) << '\n';
 
 
 }
