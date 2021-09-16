@@ -1,5 +1,3 @@
-// 다시 풀어보기!!!
-
 #include <string>
 #include <vector>
 #include <algorithm>
