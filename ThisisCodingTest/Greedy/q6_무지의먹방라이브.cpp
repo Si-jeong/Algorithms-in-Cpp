@@ -61,8 +61,9 @@ int main(){
     food_times.push_back(2);
 
     long long k = 5;
-
+    
     printf("%d\n", solution(food_times, k));
+    
     // cout << solution(food_times, k) << '\n';
 
 
