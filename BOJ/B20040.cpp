@@ -3,9 +3,6 @@
 
 using namespace std;
 
-// 참고: https://jackpot53.tistory.com/92
-
-
 int find_parent(vector<int>& parents, int a){
     int p = a;
     while (parents[p] != p){
@@ -28,6 +25,7 @@ bool checkCycle(vector<int>& parents, int a, int b){
     }
     return false;
 }
+
 int main(){
     int n, m; 
     int ans=0;
@@ -50,8 +48,10 @@ int main(){
     cout << ans << "\n";
 
 }
+
 // 어려웠던 점: 
-// c++ 로 union-find 구현 어려웠다. 
-// 사이클의 조건에서 모든 선분이라는 조건이 헷갈렸다.
+// c++ 로 union-find 구현 어려웠다.
+// 참고: https://jackpot53.tistory.com/92
+// 사이클의 조건에서 모든 선분이라는 조건이 헷갈렸지만 예시를 통해 명확하게 조건을 파악할 수 있었다.
 // vector의 값을 함수 안에서 변경하려면 call by reference 해야 함.
 // 참고: https://soyoonique.tistory.com/32, https://www.acmicpc.net/board/view/38804
