@@ -4,7 +4,6 @@
 #include <vector>
 #include <algorithm>
 
-
 using namespace std;
 
 vector<vector<int>> solution(int n, vector<vector<int>> build_frame) {
